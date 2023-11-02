@@ -6,9 +6,7 @@
 	import { Label } from '$lib/components/ui/label';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Skeleton } from '$lib/components/ui/skeleton';
-	import { ChevronRight } from 'lucide-svelte';
-	import { Eye } from 'lucide-svelte';
-	import { EyeOff } from 'lucide-svelte';
+	import { ChevronRight, Eye, EyeOff } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
 	let q = '';
@@ -54,18 +52,20 @@
 <blockquote class="text-lg">
 	{q}
 	<br /><br />
-	{#if show}
-		<span in:fade={{ duration: 200 }} class="transition-all">{a}</span>
-	{/if}
-	{#if show == false}
-		<div in:fade={{ duration: 200 }}>
-			<Skeleton class="w-[15em] h-[1.75rem]" />
-		</div>
-	{/if}
+	<div on:click={toggleAnswer}>
+		{#if show}
+			<span in:fade={{ duration: 200 }} class="transition-all">{a}</span>
+		{/if}
+		{#if show == false}
+			<div in:fade={{ duration: 200 }}>
+				<Skeleton class="w-[15em] h-[1.75rem]" />
+			</div>
+		{/if}
+	</div>
 </blockquote>
 <Separator class="my-4" />
 <div class="flex items-center space-x-2 h-12">
-	<div class="p-0 m-0" on:keypress={toggleAnswer} on:click={toggleAnswer}>
+	<div class="p-0 m-0 flex-1" on:keypress={toggleAnswer} on:click={toggleAnswer}>
 		<Button class="w-full">
 			{#if !show}
 				<div in:fade={{ duration: 200 }}>
@@ -82,7 +82,7 @@
 		</Button>
 	</div>
 	<Separator orientation="vertical" class="!mx-5 !my-0" />
-	<div on:click={refresh} on:keypress={refresh}>
+	<div class="flex-1" on:click={refresh} on:keypress={refresh}>
 		<Button class="w-full">
 			<ChevronRight class="inline mr-3" />
 			Next

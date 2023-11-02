@@ -5,6 +5,7 @@
 	import { red, green } from '../votes.js';
 	import { Button } from '$lib/components/ui/button';
 	import { ChevronRight } from 'lucide-svelte';
+	import { Separator } from '$lib/components/ui/separator';
 
 	let text;
 	let topics = [];
@@ -39,9 +40,11 @@
 
 <h1>Debate Topics</h1>
 
-<blockquote class="lead">
+<blockquote class="lead" on:click={refresh}>
 	{chosenTopic}
 </blockquote>
+
+<Vote {red} {green} />
 
 <div on:click={refresh}>
 	<Button>
@@ -49,7 +52,6 @@
 		Next
 	</Button>
 </div>
-
-<Vote {red} {green} />
-
+<br />
+<Separator />
 <p class="italic text-neutral-500">This is not synced with other peoples responses.</p>
