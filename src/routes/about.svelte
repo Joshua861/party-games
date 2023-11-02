@@ -45,3 +45,7 @@
 	<a href="https://github.com/crawsome/riddles/blob/main/riddles.csv">list of riddles</a>. I have
 	not read them all.
 </p>
+
+<Separator />
+
+<p class="text-sm text-neutral-500">Favicon by Twemoji</p>
