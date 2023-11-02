@@ -37,6 +37,8 @@
 	}
 </script>
 
+TODO: https://opentdb.com/api.php?amount=1&type=multiple
+
 <h1>Trivia</h1>
 
 <blockquote class="text-lg">
