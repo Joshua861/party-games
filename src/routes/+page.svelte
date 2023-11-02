@@ -5,6 +5,5 @@
 
 <Wrapper>
 	<h1>Party Games</h1>
-
 	<About />
 </Wrapper>

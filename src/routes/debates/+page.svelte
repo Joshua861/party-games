@@ -1,8 +1,10 @@
-<script type="text/javascript">
+<script lang="ts">
 	import Wrapper from '../wrapper.svelte';
 	import { onMount } from 'svelte';
 	import Vote from '../vote.svelte';
 	import { red, green } from '../votes.js';
+	import { Button } from '$lib/components/ui/button';
+	import { RotateCw } from 'lucide-svelte';
 
 	let text;
 	let topics = [];
@@ -18,18 +20,21 @@
 
 	const getTopics = async () => {
 		const response = await fetch(
-			'https://raw.githubusercontent.com/Joshua861/debate-topics/main/debate-topics.txt'
+			'https://raw.githubusercontent.com/Joshua861/listof/main/debate-topics.txt'
 		);
+		console.log('Fetched list of debate topics.');
 		text = await response.text();
 		topics = text.split('\n').filter((topic) => topic.trim() !== '');
 		refresh();
 	};
 
-	const refresh = () => {
+	function refresh() {
+		console.log('Refreshing...');
 		chosenTopic = topics.random();
 		red.set(0);
 		green.set(0);
-	};
+		console.log(chosenTopic);
+	}
 </script>
 
 <Wrapper>
@@ -39,33 +44,12 @@
 		{chosenTopic}
 	</blockquote>
 
-	<button
-		class="hover:underline decoration-2 underline-offset-4 dark:hover:text-white hover:text-black"
-		on:click={refresh}
-	>
-		Refresh
-	</button>
+	<div on:click={refresh}>
+		<Button>
+			<RotateCw class="inline mr-3" />
+			Refresh
+		</Button>
+	</div>
 
 	<Vote {red} {green} />
-
-	<br /><br />
-
-	<details>
-		<summary
-			>All topics <span class="text-sm"
-				><a
-					class="text-neutral-500 font-light no-underline hover:underline hover:font-bold"
-					href="https://raw.githubusercontent.com/Joshua861/debate-topics/main/debate-topics.txt"
-					>(raw)</a
-				></span
-			></summary
-		>
-		{#each topics as topic}
-			<li>
-				{topic}
-			</li>
-		{/each}
-	</details>
-
-	<ul />
 </Wrapper>

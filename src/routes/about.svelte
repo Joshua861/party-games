@@ -1,18 +1,34 @@
 <script type="text/javascript">
-	import Description from './description.svelte';
+	import { Separator } from '$lib/components/ui/separator';
 </script>
 
-<div id="about">
-	<Description link="debates">
-		<span slot="title"> Debate Topics </span>
-		<span slot="description">
-			A random debate topic generator that will (hopefully) help you start a conversation with a
-			group of friends. They range from more lighthearted topics like "Whats the best season?", to
-			more <em>intense</em> topics like "The carbon tax would be effective for combatting climate
-			change.
-			<br /><br />
-			These were curated from a liberal/left wing point of view, and questions like 'Abortion is a human
-			right', and 'Gay marrage should be legal' have been removed (for being to obvious).
-		</span>
-	</Description>
-</div>
+<h2>
+	<a href="/debates">Debate Topics</a>
+</h2>
+
+<p>
+	A random debate topic generator that will (hopefully) help you start a conversation with a group
+	of friends. They range from more lighthearted topics like "Whats the best season?", to more
+	intense topics like "The carbon tax would be effective for combatting climate change.
+</p>
+
+<p>
+	These were curated from a left wing point of view, and questions like 'Abortion is a human right',
+	and 'Gay marrage should be legal' have been removed (for being to obvious). <a
+		href="https://raw.githubusercontent.com/Joshua861/listof/main/debate-topics.txt">(raw)</a
+	>
+</p>
+
+<Separator />
+
+<h2>
+	<a href="/jokes"> Jokes </a>
+</h2>
+
+<p>
+	Thanks to <a href="https://github.com/yesinteractive">@yesinteractive</a> on GitHub for the
+	<a href="https://github.com/yesinteractive/dadjokes/blob/master/controllers/jokes.txt"
+		>list of jokes</a
+	>. I have not read them all, so I'm sorry is any of them are awful. I'm planning to curate my own
+	list soon.
+</p>
