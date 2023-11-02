@@ -6,8 +6,9 @@
 	import { Label } from '$lib/components/ui/label';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Skeleton } from '$lib/components/ui/skeleton';
-	import { RotateCw } from 'lucide-svelte';
+	import { ChevronRight } from 'lucide-svelte';
 	import { Eye } from 'lucide-svelte';
+	import { EyeOff } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
 	let q = '';
@@ -65,17 +66,26 @@
 <Separator class="my-4" />
 <div class="flex items-center space-x-2 h-12">
 	<div class="p-0 m-0" on:keypress={toggleAnswer} on:click={toggleAnswer}>
-		<Button>
-			<Eye class="inline mr-3" />
-
-			Show answer</Button
-		>
+		<Button class="w-full">
+			{#if !show}
+				<div in:fade={{ duration: 200 }}>
+					<Eye class="inline mr-3" />
+					Show answer
+				</div>
+			{/if}
+			{#if show}
+				<div in:fade={{ duration: 200 }}>
+					<EyeOff class="inline mr-3" />
+					Hide answer
+				</div>
+			{/if}
+		</Button>
 	</div>
 	<Separator orientation="vertical" class="!mx-5 !my-0" />
 	<div on:click={refresh} on:keypress={refresh}>
-		<Button>
-			<RotateCw class="inline mr-3" />
-			Refresh
+		<Button class="w-full">
+			<ChevronRight class="inline mr-3" />
+			Next
 		</Button>
 	</div>
 </div>

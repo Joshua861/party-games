@@ -4,7 +4,7 @@
 	import Vote from '../vote.svelte';
 	import { red, green } from '../votes.js';
 	import { Button } from '$lib/components/ui/button';
-	import { RotateCw } from 'lucide-svelte';
+	import { ChevronRight } from 'lucide-svelte';
 
 	let text;
 	let topics = [];
@@ -45,8 +45,8 @@
 
 <div on:click={refresh}>
 	<Button>
-		<RotateCw class="inline mr-3" />
-		Refresh
+		<ChevronRight class="inline mr-3" />
+		Next
 	</Button>
 </div>
 
