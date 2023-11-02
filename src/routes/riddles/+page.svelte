@@ -55,10 +55,10 @@
 <h1>Riddles</h1>
 
 <blockquote class="text-lg">
-	{q}
+	Q: {q}
 	<br /><br />
 	{#if show}
-		<span in:fade={{ duration: 200 }} class="transition-all">{a}</span>
+		<span in:fade={{ duration: 200 }} class="transition-all">A: {a}</span>
 	{/if}
 	{#if show == false}
 		<div in:fade={{ duration: 200 }}>
