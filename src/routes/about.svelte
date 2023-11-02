@@ -26,9 +26,22 @@
 </h2>
 
 <p>
-	Thanks to <a href="https://github.com/yesinteractive">@yesinteractive</a> on GitHub for the
+	A bunch of dad jokes. Thanks to <a href="https://github.com/yesinteractive">@yesinteractive</a> on
+	GitHub for the
 	<a href="https://github.com/yesinteractive/dadjokes/blob/master/controllers/jokes.txt"
 		>list of jokes</a
-	>. I have not read them all, so I'm sorry is any of them are awful. I'm planning to curate my own
-	list soon.
+	>. I have not read them all.
+</p>
+
+<Separator />
+
+<h2>
+	<a href="/riddles">Riddles</a>
+</h2>
+
+<p>
+	A bunch of riddles. Thanks to<a href="https://github.com/crawsome/riddles">@crawsome</a> on GitHub
+	for the
+	<a href="https://github.com/crawsome/riddles/blob/main/riddles.csv">list of riddles</a>. I have
+	not read them all.
 </p>

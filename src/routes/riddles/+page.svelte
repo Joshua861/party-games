@@ -9,6 +9,7 @@
 	import { RotateCw } from 'lucide-svelte';
 	import { Eye } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
+	import Papa from 'papaparse';
 
 	let q = '';
 	let a = '';
@@ -18,27 +19,30 @@
 		return this[Math.floor(Math.random() * this.length)];
 	};
 
-	let jokes = [];
-
 	onMount(() => {
-		getJokes();
+		getRiddles();
 	});
 
-	const getJokes = async () => {
+	let rows = [];
+
+	const getRiddles = async () => {
 		const response = await fetch(
-			'https://raw.githubusercontent.com/yesinteractive/dadjokes/master/controllers/jokes.txt'
+			'https://raw.githubusercontent.com/crawsome/riddles/main/riddles.csv'
 		);
-		console.log('Fetched list of jokes!');
-		let text = await response.text();
-		jokes = text.split('\n').filter((topic) => topic.trim() !== '');
+		console.log('Fetched list of riddles!');
+		const csv = await response.text();
+
+		const parsedData = Papa.parse(csv, { header: true });
+		rows = parsedData.data;
+
 		refresh();
 	};
 
 	function refresh() {
 		console.log('Refreshing...');
-		let joke = jokes.random();
-		q = joke.split('<>')[0];
-		a = joke.split('<>')[1];
+		let row = rows.random();
+		q = row['QUESTIONS'];
+		a = row['ANSWERS'];
 		console.log('Q: ' + q + '\nA: ' + a);
 		show = false;
 	}
@@ -48,7 +52,7 @@
 	}
 </script>
 
-<h1>Jokes</h1>
+<h1>Riddles</h1>
 
 <blockquote class="text-lg">
 	{q}

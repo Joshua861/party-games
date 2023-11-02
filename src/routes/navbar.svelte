@@ -10,11 +10,13 @@
 			<a class="hover:underline" href="/">/</a>
 		</Menubar.Item>
 		<Menubar.Item>
-			<a class="hover:underline" href="debates">Debate Topics</a>
+			<a class="hover:underline" href="/debates">Debate Topics</a>
 		</Menubar.Item>
 		<Menubar.Item>
-			<a class="hover:underline" href="jokes">Jokes</a>
+			<a class="hover:underline" href="/jokes">Jokes</a>
 		</Menubar.Item>
-		<Menubar.Separator />
+		<Menubar.Item>
+			<a class="hover:underline" href="/riddles">Riddles</a>
+		</Menubar.Item>
 	</Menubar.Menu>
 </Menubar.Root>

@@ -3,7 +3,5 @@
 	import About from './about.svelte';
 </script>
 
-<Wrapper>
-	<h1>Party Games</h1>
-	<About />
-</Wrapper>
+<h1>Party Games</h1>
+<About />

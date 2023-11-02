@@ -37,19 +37,19 @@
 	}
 </script>
 
-<Wrapper>
-	<h1>Debate Topics</h1>
+<h1>Debate Topics</h1>
 
-	<blockquote class="lead">
-		{chosenTopic}
-	</blockquote>
+<blockquote class="lead">
+	{chosenTopic}
+</blockquote>
 
-	<div on:click={refresh}>
-		<Button>
-			<RotateCw class="inline mr-3" />
-			Refresh
-		</Button>
-	</div>
+<div on:click={refresh}>
+	<Button>
+		<RotateCw class="inline mr-3" />
+		Refresh
+	</Button>
+</div>
 
-	<Vote {red} {green} />
-</Wrapper>
+<Vote {red} {green} />
+
+<p class="italic text-neutral-500">This is not synced with other peoples responses.</p>
