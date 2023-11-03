@@ -1,9 +1,6 @@
 <script type="ts">
-	import Wrapper from '../wrapper.svelte';
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { Switch } from '$lib/components/ui/switch';
-	import { Label } from '$lib/components/ui/label';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import { ChevronRight, EyeOff, Eye } from 'lucide-svelte';
@@ -54,9 +51,9 @@
 <h1>Riddles</h1>
 
 <blockquote class="text-lg">
-<div on:click={refresh}>
-	Q: {q}
-</div>
+	<div on:click={refresh}>
+		Q: {q}
+	</div>
 	<br /><br />
 	<div on:click={toggleAnswer}>
 		{#if show}

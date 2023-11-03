@@ -1,45 +1,79 @@
 <script type="ts">
-	import Wrapper from '../wrapper.svelte';
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { Switch } from '$lib/components/ui/switch';
-	import { Label } from '$lib/components/ui/label';
-	import { Separator } from '$lib/components/ui/separator';
-	import { Skeleton } from '$lib/components/ui/skeleton';
-	import { ChevronRight, EyeOff, Eye } from 'lucide-svelte';
-	import { fade } from 'svelte/transition';
+	import he from 'he';
 
-	let category = '';
-	let difficulty = '';
-	let question = '';
-	let correct_answer = '';
-	let incorrect_answers = [];
+	let question = 'Loading...';
+	let correct_answer = 'Loading...';
+	let incorrect_answers = ['Loading...', 'Loading...', 'Loading...'];
+	let answers;
+	let correct = 'none';
+
+	$: answers = [correct_answer, ...incorrect_answers];
+
+	$: {
+		answers = [correct_answer, ...incorrect_answers];
+		shuffleArray(answers);
+		answers = answers.map((answer) => ({ text: answer, isCorrect: answer === correct_answer }));
+	}
 
 	const getQuestion = async () => {
-		let response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
-		console.log(response);
-		obj = JSON.parse(response);
-		let results = obj.results[0];
+		correct = 'none';
+		question = 'Loading...';
+		correct_answer = 'Loading...';
+		incorrect_answers = ['Loading...', 'Loading...', 'Loading...'];
 
-		category = results.category;
-		difficulty = results.difficulty;
-		question = results.question;
+		let response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
+		let data = await response.json();
+		let results = data.results[0];
+
+		question = he.decode(results.question);
+
+		correct_answer = he.decode(results.correct_answer);
+		incorrect_answers = results.incorrect_answers.map(he.decode);
 	};
 
 	onMount(() => {
 		getQuestion();
 	});
+
+	function checkAnswer(answer) {
+		correct = answer === correct_answer;
+	}
+
+	const shuffleArray = (array) => {
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+	};
+
+	$: if (correct !== 'none') {
+		setTimeout(getQuestion, 3000);
+	}
 </script>
 
 <h1>Trivia</h1>
 
-<p class="lead">
-	{question}
-</p>
+{#if correct !== 'none'}
+	{#if correct}
+		<p class="text-lime-300 text-2xl font-bold">Nice!</p>
+	{:else}
+		<p class="text-red-300 text-2xl font-bold">Incorrect</p>
+	{/if}
+{:else}
+	<p class="text-xl italic">
+		{question}
+	</p>
+{/if}
 
-<p class="text-sm">
-	Catagory: {category}
-</p>
-<p class="text-sm">
-	Difficulty: {difficulty}
-</p>
+<div class="grid grid-cols-1 sm:grid-cols-2">
+	{#each answers as answer, i}
+		<Button
+			on:click={() => checkAnswer(answer.text)}
+			class="inline-block my-1 sm:mx-1 {correct !== 'none' && answer.isCorrect
+				? 'bg-lime-400 hover:bg-lime-300'
+				: ''}">{answer.text}</Button
+		>
+	{/each}
+</div>

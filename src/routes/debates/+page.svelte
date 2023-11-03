@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Wrapper from '../wrapper.svelte';
 	import { onMount } from 'svelte';
 	import Vote from '../vote.svelte';
 	import { red, green } from '../votes.js';

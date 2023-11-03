@@ -37,6 +37,7 @@
 	"dependencies": {
 		"bits-ui": "^0.5.7",
 		"clsx": "^2.0.0",
+		"he": "^1.2.0",
 		"lucide-svelte": "^0.287.0",
 		"papaparse": "^5.4.1",
 		"tailwind-merge": "^1.14.0",

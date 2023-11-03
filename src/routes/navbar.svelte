@@ -27,7 +27,7 @@
 					<a class="hover:underline" href="/">Home</a>
 				</Menubar.Item>
 			</div>
-			<div class="mx-3">
+			<div class="flex-initial mr-0">
 				<Menubar.Trigger>
 					<Menu />
 				</Menubar.Trigger>
