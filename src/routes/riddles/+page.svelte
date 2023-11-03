@@ -54,7 +54,9 @@
 <h1>Riddles</h1>
 
 <blockquote class="text-lg">
+<div on:click={refresh}>
 	Q: {q}
+</div>
 	<br /><br />
 	<div on:click={toggleAnswer}>
 		{#if show}
