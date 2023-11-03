@@ -9,15 +9,21 @@
 	import { ChevronRight, EyeOff, Eye } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
+	let category = '';
+	let difficulty = '';
+	let question = '';
+	let correct_answer = '';
+	let incorrect_answers = [];
+
 	const getQuestion = async () => {
 		let response = await fetch('https://opentdb.com/api.php?amount=1&type=multiple');
-		console.log('Fetched response!');
-		let obj = JSON.parse(response);
-		let catagory = obj.results.category;
-		let diff = obj.results.diffuculty;
-		let q = obj.results.question;
-		let ca = obj.results.correct_answer;
-		let ia = obj.results.incorrect_answers;
+		console.log(response);
+		obj = JSON.parse(response);
+		let results = obj.results[0];
+
+		category = results.category;
+		difficulty = results.difficulty;
+		question = results.question;
 	};
 
 	onMount(() => {
@@ -28,10 +34,12 @@
 <h1>Trivia</h1>
 
 <p class="lead">
-	{q}
+	{question}
 </p>
 
 <p class="text-sm">
-	Catagory: {catagory}
-	Difficulty: {diff}
+	Catagory: {category}
+</p>
+<p class="text-sm">
+	Difficulty: {difficulty}
 </p>
