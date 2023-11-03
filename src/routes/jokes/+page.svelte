@@ -50,7 +50,9 @@
 <h1>Jokes</h1>
 
 <blockquote class="text-lg">
+<div on:click={refresh}>
 	{q}
+</div>
 	<br /><br />
 	<div on:click={toggleAnswer}>
 		{#if show}
