@@ -6,7 +6,7 @@
 	import { ChevronRight, Eye, EyeOff } from 'lucide-svelte';
 	import { fade } from 'svelte/transition';
 
-	let q = '';
+	let q = 'Loading...';
 	let a = '';
 	let show = false;
 

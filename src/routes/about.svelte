@@ -48,4 +48,14 @@
 
 <Separator />
 
+<h2>
+	<a href="/trivia">Trivia</a>
+</h2>
+
+<p>
+	Some awesome trivia questions thanks to <a href="https://opentdb.com/">Open Trivia Database</a>.
+</p>
+
+<Separator />
+
 <p class="text-sm text-neutral-500">Favicon by Twemoji</p>

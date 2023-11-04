@@ -7,7 +7,7 @@
 	import { fade } from 'svelte/transition';
 	import Papa from 'papaparse';
 
-	let q = '';
+	let q = 'Loading...';
 	let a = '';
 	let show = false;
 

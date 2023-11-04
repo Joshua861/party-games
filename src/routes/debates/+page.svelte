@@ -8,7 +8,7 @@
 
 	let text;
 	let topics = [];
-	let chosenTopic = '';
+	let chosenTopic = 'Loading...';
 
 	Array.prototype.random = function () {
 		return this[Math.floor(Math.random() * this.length)];
