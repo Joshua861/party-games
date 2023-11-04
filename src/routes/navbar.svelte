@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar';
-	import { Menu } from 'lucide-svelte';
+	import { Menu, HelpCircle, Laugh, CheckSquare, Vote } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -73,21 +73,25 @@
 		<Command.Group heading="Games">
 			<a href="/trivia" on:click={closeMenu}>
 				<Command.Item class="flex">
-					<span class="flex-1">Trivia </span><Badge class="bg-sky-300 hover:bg-sky-200">New</Badge>
+					<CheckSquare class="mr-2 h-4 w-4" />
+					<span class="flex-1">Trivia</span><Badge class="bg-sky-300 hover:bg-sky-200">New</Badge>
 				</Command.Item>
 			</a>
 			<a href="/debates" on:click={closeMenu}>
 				<Command.Item>
+					<Vote class="mr-2 h-4 w-4" />
 					<span>Debate topics</span>
 				</Command.Item>
 			</a>
 			<a href="/jokes" on:click={closeMenu}>
 				<Command.Item>
+					<Laugh class="mr-2 h-4 w-4" />
 					<span>Jokes</span>
 				</Command.Item>
 			</a>
 			<a href="/riddles" on:click={closeMenu}>
 				<Command.Item>
+					<HelpCircle class="mr-2 h-4 w-4" />
 					<span>Riddles</span>
 				</Command.Item>
 			</a>
