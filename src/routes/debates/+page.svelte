@@ -3,6 +3,7 @@
 	import Vote from '../vote.svelte';
 	import { red, green } from '../votes.js';
 	import { Button } from '$lib/components/ui/button';
+	import * as Popover from '$lib/components/ui/popover';
 	import { ChevronRight } from 'lucide-svelte';
 	import { Separator } from '$lib/components/ui/separator';
 
@@ -53,4 +54,14 @@
 </div>
 <br />
 <Separator />
-<p class="italic text-neutral-500">This is not synced with other peoples responses.</p>
+<br />
+<Popover.Root>
+	<Popover.Trigger>
+		<Button variant="secondary">?</Button>
+	</Popover.Trigger>
+	<Popover.Content
+		>Your votes are not synced with other people's responses. The idea for the voting thing is that
+		you'd pass a phone around and people would press if they agreed or not. At the end you'd have
+		the total.</Popover.Content
+	>
+</Popover.Root>

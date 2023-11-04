@@ -1,6 +1,7 @@
 <script type="text/javascript">
 	import * as Menubar from '$lib/components/ui/menubar';
 	import { Menu } from 'lucide-svelte';
+	import { Badge } from '$lib/components/ui/badge';
 </script>
 
 <Menubar.Root
@@ -45,7 +46,10 @@
 						<Menubar.Item>Riddles</Menubar.Item>
 					</a>
 					<a class="hover:underline" href="/trivia">
-						<Menubar.Item>Trivia</Menubar.Item>
+						<Menubar.Item class="flex"
+							><p class="flex-1">Trivia</p>
+							<Badge class="bg-sky-300 hover:bg-sky-200">New</Badge></Menubar.Item
+						>
 					</a>
 				</Menubar.Content>
 			</div>
