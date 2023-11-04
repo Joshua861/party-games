@@ -20,6 +20,9 @@
 			<Menubar.Item>
 				<a class="hover:underline" href="/riddles">Riddles</a>
 			</Menubar.Item>
+			<Menubar.Item>
+				<a class="hover:underline" href="/trivia">Trivia</a>
+			</Menubar.Item>
 		</div>
 		<div class="flex justify-start sm:hidden w-screen">
 			<div class="flex-1 justify-start">
@@ -40,6 +43,9 @@
 					</a>
 					<a class="hover:underline" href="/riddles">
 						<Menubar.Item>Riddles</Menubar.Item>
+					</a>
+					<a class="hover:underline" href="/trivia">
+						<Menubar.Item>Trivia</Menubar.Item>
 					</a>
 				</Menubar.Content>
 			</div>

@@ -1,6 +1,7 @@
-<script type="ts">
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
+	import { Check, ChevronRight } from 'lucide-svelte';
 	import he from 'he';
 
 	let question = 'Loading...';
@@ -8,16 +9,20 @@
 	let incorrect_answers = ['Loading...', 'Loading...', 'Loading...'];
 	let answers;
 	let correct = 'none';
-
-	$: answers = [correct_answer, ...incorrect_answers];
+	let showNext = false;
 
 	$: {
 		answers = [correct_answer, ...incorrect_answers];
 		shuffleArray(answers);
-		answers = answers.map((answer) => ({ text: answer, isCorrect: answer === correct_answer }));
+		answers = answers.map((answer) => ({
+			text: answer,
+			isCorrect: answer === correct_answer,
+			clicked: false
+		}));
 	}
 
 	const getQuestion = async () => {
+		showNext = false;
 		correct = 'none';
 		question = 'Loading...';
 		correct_answer = 'Loading...';
@@ -39,6 +44,7 @@
 
 	function checkAnswer(answer) {
 		correct = answer === correct_answer;
+		answer.clicked = true;
 	}
 
 	const shuffleArray = (array) => {
@@ -49,31 +55,37 @@
 	};
 
 	$: if (correct !== 'none') {
-		setTimeout(getQuestion, 3000);
+		showNext = true;
 	}
 </script>
 
 <h1>Trivia</h1>
 
-{#if correct !== 'none'}
-	{#if correct}
-		<p class="text-lime-300 text-2xl font-bold">Nice!</p>
-	{:else}
-		<p class="text-red-300 text-2xl font-bold">Incorrect</p>
-	{/if}
-{:else}
-	<p class="text-xl italic">
-		{question}
-	</p>
-{/if}
+<p class="text-xl italic">
+	{question}
+</p>
 
 <div class="grid grid-cols-1 sm:grid-cols-2">
 	{#each answers as answer, i}
 		<Button
 			on:click={() => checkAnswer(answer.text)}
 			class="inline-block my-1 sm:mx-1 {correct !== 'none' && answer.isCorrect
-				? 'bg-lime-400 hover:bg-lime-300'
-				: ''}">{answer.text}</Button
+				? 'bg-lime-300 hover:bg-lime-200'
+				: ''} {correct !== 'none' && !answer.isCorrect ? 'hover:bg-red-300' : ''}"
+		>
+			{#if correct !== 'none' && answer.isCorrect}
+				<Check class="absolute" />
+			{/if}
+			{answer.text}</Button
 		>
 	{/each}
 </div>
+
+<br />
+
+{#if showNext}
+	<Button variant="secondary" on:click={getQuestion}>
+		<ChevronRight class="pr-2" />
+		Next
+	</Button>
+{/if}
