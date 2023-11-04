@@ -1,7 +1,33 @@
-<script type="text/javascript">
+<script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar';
 	import { Menu } from 'lucide-svelte';
-	import { Badge } from '$lib/components/ui/badge';
+	import { Button } from '$lib/components/ui/button';
+	import * as Command from '$lib/components/ui/command';
+	import { onMount } from 'svelte';
+
+	let open = false;
+
+	function openMenu() {
+		open = true;
+	}
+
+	function closeMenu() {
+		open = false;
+	}
+
+	onMount(() => {
+		function handleKeydown(e: KeyboardEvent) {
+			if (e.keyCode == 9) {
+				e.preventDefault();
+				open = !open;
+			}
+		}
+
+		document.addEventListener('keydown', handleKeydown);
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+		};
+	});
 </script>
 
 <Menubar.Root
@@ -32,27 +58,38 @@
 				</Menubar.Item>
 			</div>
 			<div class="flex-initial mr-0">
-				<Menubar.Trigger>
+				<Button variant="outline" on:click={openMenu}>
 					<Menu />
-				</Menubar.Trigger>
-				<Menubar.Content>
-					<a class="hover:underline" href="/debates">
-						<Menubar.Item>Debate Topics</Menubar.Item>
-					</a>
-					<a class="hover:underline" href="/jokes">
-						<Menubar.Item>Jokes</Menubar.Item>
-					</a>
-					<a class="hover:underline" href="/riddles">
-						<Menubar.Item>Riddles</Menubar.Item>
-					</a>
-					<a class="hover:underline" href="/trivia">
-						<Menubar.Item class="flex"
-							><p class="flex-1">Trivia</p>
-							<Badge class="bg-sky-300 hover:bg-sky-200">New</Badge></Menubar.Item
-						>
-					</a>
-				</Menubar.Content>
+				</Button>
 			</div>
 		</div>
 	</Menubar.Menu>
 </Menubar.Root>
+<Command.Dialog bind:open>
+	<Command.Input placeholder="Search for a game..." />
+	<Command.List>
+		<Command.Empty>No results found.</Command.Empty>
+		<Command.Group heading="Games">
+			<a href="/debates" on:click={closeMenu}>
+				<Command.Item>
+					<span>Debate topics</span>
+				</Command.Item>
+			</a>
+			<a href="/jokes" on:click={closeMenu}>
+				<Command.Item>
+					<span>Jokes</span>
+				</Command.Item>
+			</a>
+			<a href="/riddles" on:click={closeMenu}>
+				<Command.Item>
+					<span>Riddles</span>
+				</Command.Item>
+			</a>
+			<a href="/trivia" on:click={closeMenu}>
+				<Command.Item>
+					<span>Trivia</span>
+				</Command.Item>
+			</a>
+		</Command.Group>
+	</Command.List>
+</Command.Dialog>
