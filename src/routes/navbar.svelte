@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar';
-	import { Menu, HelpCircle, Laugh, CheckSquare, Vote } from 'lucide-svelte';
+	import { Menu, HelpCircle, Laugh, CheckSquare, Vote, Home, SunMoon } from 'lucide-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -16,12 +16,19 @@
 		open = false;
 	}
 
+	function toggleDark() {
+		window.document.body.classList.toggle('dark');
+	}
 	onMount(() => {
 		function handleKeydown(e: KeyboardEvent) {
 			if (e.keyCode == 9) {
 				e.preventDefault();
 				open = !open;
 			}
+		}
+
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			toggleDark();
 		}
 
 		document.addEventListener('keydown', handleKeydown);
@@ -51,18 +58,29 @@
 			<Menubar.Item>
 				<a class="hover:underline" href="/trivia">Trivia</a>
 			</Menubar.Item>
+			<button class="ml-2" on:click={toggleDark}>
+				<SunMoon size="24" />
+			</button>
 		</div>
-		<div class="flex justify-start sm:hidden w-screen">
+		<div class="flex justify-start sm:hidden w-screen mt-3">
 			<div class="flex-1 justify-start">
 				<Menubar.Item>
 					<a class="hover:underline" href="/">Home</a>
 				</Menubar.Item>
 			</div>
-			<div class="flex-initial mr-0">
-				<Button variant="outline" on:click={openMenu}>
-					<Menu />
-				</Button>
+			<div class="flex-initial mr-3">
+				<button on:click={toggleDark}>
+					<SunMoon size="32" />
+				</button>
 			</div>
+
+			<div class="flex-initial mr-0">
+				<button on:click={openMenu}>
+					<Menu size="32" />
+				</button>
+			</div>
+
+			<div class="w-5" />
 		</div>
 	</Menubar.Menu>
 </Menubar.Root>
@@ -74,7 +92,9 @@
 			<a href="/trivia" on:click={closeMenu}>
 				<Command.Item class="flex">
 					<CheckSquare class="mr-2 h-4 w-4" />
-					<span class="flex-1">Trivia</span><Badge class="bg-sky-300 hover:bg-sky-200">New</Badge>
+					<span class="flex-1">Trivia</span><Badge
+						class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800">New</Badge
+					>
 				</Command.Item>
 			</a>
 			<a href="/debates" on:click={closeMenu}>
@@ -93,6 +113,14 @@
 				<Command.Item>
 					<HelpCircle class="mr-2 h-4 w-4" />
 					<span>Riddles</span>
+				</Command.Item>
+			</a>
+		</Command.Group>
+		<Command.Group heading="Other">
+			<a href="/" on:click={closeMenu}>
+				<Command.Item>
+					<Home class="mr-2 h-4 w-4" />
+					<span>Home</span>
 				</Command.Item>
 			</a>
 		</Command.Group>

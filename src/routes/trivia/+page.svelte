@@ -69,9 +69,11 @@
 	{#each answers as answer, i}
 		<Button
 			on:click={() => checkAnswer(answer.text)}
-			class="inline-block my-1 sm:mx-1 {correct !== 'none' && answer.isCorrect
-				? 'bg-lime-300 hover:bg-lime-200'
-				: ''} {correct !== 'none' && !answer.isCorrect ? 'hover:bg-red-300' : ''}"
+			class="h-fit inline-block my-1 sm:mx-1 {correct !== 'none' && answer.isCorrect
+				? 'dark:bg-lime-300 dark:hover:bg-lime-200 bg-green-600 hover:bg-green-500'
+				: ''} {correct !== 'none' && !answer.isCorrect
+				? 'dark:hover:bg-red-300 hover:bg-red-600'
+				: ''}"
 		>
 			{#if correct !== 'none' && answer.isCorrect}
 				<Check class="absolute" />
