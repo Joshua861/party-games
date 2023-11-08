@@ -1,10 +1,23 @@
 <script lang="ts">
 	import * as Menubar from '$lib/components/ui/menubar';
-	import { Menu, HelpCircle, Laugh, CheckSquare, Vote, Home, SunMoon } from 'lucide-svelte';
-	import { Button } from '$lib/components/ui/button';
+	import {
+		Menu,
+		HelpCircle,
+		Laugh,
+		CheckSquare,
+		Vote,
+		Home,
+		Brain,
+		Paintbrush,
+		SunMoon
+	} from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
 	import { Badge } from '$lib/components/ui/badge';
+	import { Button } from '$lib/components/ui/button';
+	import { Sun, Moon } from 'lucide-svelte';
+
+	import { toggleMode } from 'mode-watcher';
 
 	let open = false;
 
@@ -16,9 +29,10 @@
 		open = false;
 	}
 
-	function toggleDark() {
-		window.document.body.classList.toggle('dark');
+	function toggleColorful() {
+		window.document.querySelector('html').classList.toggle('colorful');
 	}
+
 	onMount(() => {
 		function handleKeydown(e: KeyboardEvent) {
 			if (e.keyCode == 9) {
@@ -27,22 +41,27 @@
 			}
 		}
 
-		if (window.matchMedia && !window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			toggleDark();
-		}
-
 		document.addEventListener('keydown', handleKeydown);
 		return () => {
 			document.removeEventListener('keydown', handleKeydown);
 		};
 	});
+
+	function colorAndClose() {
+		closeMenu();
+		toggleColorful();
+	}
+	function darkAndClose() {
+		closeMenu();
+		toggleMode();
+	}
 </script>
 
 <Menubar.Root
-	class="prose prose-a:px-1 prose-a:decoration-2 prose-a:no-underline dark:prose-invert w-[9999em] rounded-none border-b border-none lg:px-4"
+	class="!max-w-none prose prose-a:px-1 prose-a:decoration-2 prose-a:no-underline dark:prose-invert rounded-none border-b border-none lg:px-4 border"
 >
 	<Menubar.Menu>
-		<div class="hidden sm:flex">
+		<div class="hidden sm:flex gap-x-2 justify-start mt-2">
 			<Menubar.Item>
 				<a class="hover:underline" href="/">Home</a></Menubar.Item
 			>
@@ -58,31 +77,40 @@
 			<Menubar.Item>
 				<a class="hover:underline" href="/trivia">Trivia</a>
 			</Menubar.Item>
-			<button class="ml-2" on:click={toggleDark}>
-				<SunMoon size="24" />
-			</button>
+			<Menubar.Item>
+				<a class="hover:underline flex-1 justify-start" href="/facts">Facts</a>
+			</Menubar.Item>
+			<Button on:click={toggleMode} variant="outline" size="icon">
+				<Sun
+					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+				/>
+				<Moon
+					class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+				/>
+				<span class="sr-only">Toggle theme</span>
+			</Button>
 		</div>
-		<div class="flex justify-start sm:hidden w-screen mt-3">
-			<div class="flex-1 justify-start">
+		<div class="flex justify-start sm:hidden mt-3 gap-2">
+			<div class="flex-1 justify-start self-center">
 				<Menubar.Item>
 					<a class="hover:underline" href="/">Home</a>
 				</Menubar.Item>
 			</div>
-			<div class="flex-initial mr-3">
-				<button on:click={toggleDark}>
-					<SunMoon size="32" />
-				</button>
-			</div>
-
-			<div class="flex-initial mr-0">
-				<button on:click={openMenu}>
-					<Menu size="32" />
-				</button>
-			</div>
+			<Button on:click={toggleMode} size="icon" variant="outline">
+				<Sun
+					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+				/>
+				<Moon
+					class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+				/>
+			</Button>
+			<Button size="icon" variant="outline" on:click={openMenu}>
+				<Menu />
+			</Button>
 
 			<div class="w-5" />
-		</div>
-	</Menubar.Menu>
+		</div></Menubar.Menu
+	>
 </Menubar.Root>
 <Command.Dialog bind:open>
 	<Command.Input placeholder="Search for a game..." />
@@ -90,11 +118,9 @@
 		<Command.Empty>No results found.</Command.Empty>
 		<Command.Group heading="Games">
 			<a href="/trivia" on:click={closeMenu}>
-				<Command.Item class="flex">
+				<Command.Item>
 					<CheckSquare class="mr-2 h-4 w-4" />
-					<span class="flex-1">Trivia</span><Badge
-						class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800">New</Badge
-					>
+					<span>Trivia</span>
 				</Command.Item>
 			</a>
 			<a href="/debates" on:click={closeMenu}>
@@ -107,6 +133,15 @@
 				<Command.Item>
 					<Laugh class="mr-2 h-4 w-4" />
 					<span>Jokes</span>
+				</Command.Item>
+			</a>
+			<a href="/facts" on:click={closeMenu}>
+				<Command.Item class="flex">
+					<Brain class="mr-2 h-4 w-4" />
+					<span class="flex-1">Facts</span>
+					<Badge class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800"
+						>New</Badge
+					>
 				</Command.Item>
 			</a>
 			<a href="/riddles" on:click={closeMenu}>
@@ -123,6 +158,18 @@
 					<span>Home</span>
 				</Command.Item>
 			</a>
+			<div on:click={colorAndClose}>
+				<Command.Item>
+					<Paintbrush class="mr-2 h-4 w-4" />
+					Toggle colorful mode
+				</Command.Item>
+			</div>
+			<div on:click={darkAndClose}>
+				<Command.Item>
+					<SunMoon class="mr-2 h-4 w-4" />
+					Toggle dark mode
+				</Command.Item>
+			</div>
 		</Command.Group>
 	</Command.List>
 </Command.Dialog>

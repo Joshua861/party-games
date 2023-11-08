@@ -1,6 +1,7 @@
 <script>
 	import '../app.postcss';
 	import Wrapper from './wrapper.svelte';
+	import { ModeWatcher } from 'mode-watcher';
 </script>
 
 <svelte:head>
@@ -12,6 +13,7 @@
 	<meta name="theme-color" content="#0A0A0A" />
 </svelte:head>
 
+<ModeWatcher />
 <Wrapper>
 	<slot />
 </Wrapper>
