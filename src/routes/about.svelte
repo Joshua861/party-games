@@ -58,4 +58,24 @@
 
 <Separator />
 
+<h2>
+	Facts
+</h2>
+
+<p>
+	Fun facts from the <a href="https://github.com/TabulateJarl8/randfacts">randfacts</a> python module, thanks to <a href="https://github.com/TabulateJarl8">@TabulateJarl8</a>.
+</p>
+
+<Separator />
+
+<h2>
+	Would you rather?
+</h2>
+
+<p>
+	Would you rather questions provided by <a href="https://github.com/svijaymohan745">@svijaymohan745</a> as part of their <a href="https://github.com/svijaymohan745/Discord.JS-12-CON-Bot">Discord bot</a>.
+</p>
+
+<Separator />
+
 <p class="text-sm text-neutral-500">Favicon by Twemoji</p>

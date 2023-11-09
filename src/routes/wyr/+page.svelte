@@ -10,8 +10,6 @@
 		return this[Math.floor(Math.random() * this.length)];
 	};
 
-	let facts = [];
-
 	onMount(() => {
 		getFacts();
 	});
@@ -22,7 +20,7 @@
 		);
 		console.log('Fetched list of facts!');
 		let text = await response.json();
-		facts = text.map(he.decode);
+		let facts = text.map(he.decode);
 		refresh();
 	};
 
