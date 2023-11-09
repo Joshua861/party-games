@@ -59,7 +59,7 @@
 <Separator />
 
 <h2>
-	Facts
+	<a href="/facts">Facts</a>
 </h2>
 
 <p>
@@ -69,7 +69,7 @@
 <Separator />
 
 <h2>
-	Would you rather?
+	<a href="/wyr">Would you rather?</a>
 </h2>
 
 <p>
