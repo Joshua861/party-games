@@ -4,37 +4,38 @@
 	import { ChevronRight } from 'lucide-svelte';
 	import he from 'he';
 
-	let fact = 'Loading...';
+	let wyr = 'Loading...';
+	let wyrs = [];
 
 	Array.prototype.random = function () {
 		return this[Math.floor(Math.random() * this.length)];
 	};
 
 	onMount(() => {
-		getFacts();
+		getWyrs();
 	});
 
-	const getFacts = async () => {
+	const getWyrs = async () => {
 		const response = await fetch(
 			'https://raw.githubusercontent.com/svijaymohan745/Discord.JS-12-CON-Bot/master/messages/wyr/would-you-rather.json'
 		);
-		console.log('Fetched list of facts!');
+		console.log('Fetched list of wyrs!');
 		let text = await response.json();
-		let facts = text.map(he.decode);
+		wyrs = text.map(he.decode);
 		refresh();
 	};
 
 	function refresh() {
 		console.log('Refreshing...');
-		fact = facts.random();
-		console.log('Fact: ' + fact);
+		wyr = wyrs.random();
+		console.log('Wyr: ' + wyr);
 	}
 </script>
 
 <h1>Would You Rather?</h1>
 
 <blockquote class="text-lg">
-	{fact}
+	{wyr}
 </blockquote>
 
 <br />
