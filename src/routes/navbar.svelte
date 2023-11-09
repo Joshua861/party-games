@@ -78,6 +78,9 @@
 				<a class="hover:underline" href="/trivia">Trivia</a>
 			</Menubar.Item>
 			<Menubar.Item>
+				<a class="hover:underline" href="/wyr">Would you rather?</a>
+			</Menubar.Item>
+			<Menubar.Item>
 				<a class="hover:underline flex-1 justify-start" href="/facts">Facts</a>
 			</Menubar.Item>
 			<Button on:click={toggleMode} variant="outline" size="icon">
@@ -135,13 +138,19 @@
 					<span>Jokes</span>
 				</Command.Item>
 			</a>
-			<a href="/facts" on:click={closeMenu}>
+			<a href="/wyr" on:click={closeMenu}>
 				<Command.Item class="flex">
-					<Brain class="mr-2 h-4 w-4" />
-					<span class="flex-1">Facts</span>
+					<HelpCircle class="mr-2 h-4 w-4" />
+					<span class="flex-1">Would you rather?</span>
 					<Badge class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800"
 						>New</Badge
 					>
+				</Command.Item>
+			</a>
+			<a href="/facts" on:click={closeMenu}>
+				<Command.Item>
+					<Brain class="mr-2 h-4 w-4" />
+					<span>Facts</span>
 				</Command.Item>
 			</a>
 			<a href="/riddles" on:click={closeMenu}>

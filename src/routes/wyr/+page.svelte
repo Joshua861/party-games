@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { ChevronRight } from 'lucide-svelte';
+	import he from 'he';
 
 	let fact = 'Loading...';
 
@@ -17,11 +18,11 @@
 
 	const getFacts = async () => {
 		const response = await fetch(
-			'https://raw.githubusercontent.com/TabulateJarl8/randfacts/master/randfacts/safe.txt'
+			'https://raw.githubusercontent.com/svijaymohan745/Discord.JS-12-CON-Bot/master/messages/wyr/would-you-rather.json'
 		);
 		console.log('Fetched list of facts!');
-		let text = await response.text();
-		facts = text.split('\n').filter((topic) => topic.trim() !== '');
+		let text = await response.json();
+		facts = text.map(he.decode);
 		refresh();
 	};
 
@@ -32,7 +33,7 @@
 	}
 </script>
 
-<h1>Facts</h1>
+<h1>Would You Rather?</h1>
 
 <blockquote class="text-lg">
 	{fact}
