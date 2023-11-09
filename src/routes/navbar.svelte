@@ -61,7 +61,7 @@
 	class="!max-w-none prose prose-a:px-1 prose-a:decoration-2 prose-a:no-underline dark:prose-invert rounded-none border-b border-none lg:px-4 border"
 >
 	<Menubar.Menu>
-		<div class="hidden sm:flex gap-x-2 justify-start mt-2">
+		<div class="hidden md:flex gap-x-2 justify-start mt-2">
 			<Menubar.Item>
 				<a class="hover:underline" href="/">Home</a></Menubar.Item
 			>
@@ -93,13 +93,13 @@
 				<span class="sr-only">Toggle theme</span>
 			</Button>
 		</div>
-		<div class="flex justify-start sm:hidden mt-3 gap-2">
+		<div class="flex justify-start md:hidden mt-3 gap-2 w-screen">
 			<div class="flex-1 justify-start self-center">
 				<Menubar.Item>
 					<a class="hover:underline" href="/">Home</a>
 				</Menubar.Item>
 			</div>
-			<Button on:click={toggleMode} size="icon" variant="outline">
+			<Button on:click={toggleMode} size="icon" variant="outline" class="ml-5">
 				<Sun
 					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
 				/>
