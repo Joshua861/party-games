@@ -61,7 +61,7 @@
 	class="!max-w-none prose prose-a:px-1 prose-a:decoration-2 prose-a:no-underline dark:prose-invert rounded-none border-b border-none lg:px-4 border"
 >
 	<Menubar.Menu>
-		<div class="hidden md:flex gap-x-2 justify-start mt-2">
+		<div class="hidden md:flex gap-x-2 justify-start mt-2 w-screen">
 			<Menubar.Item>
 				<a class="hover:underline" href="/">Home</a></Menubar.Item
 			>
@@ -80,8 +80,8 @@
 			<Menubar.Item>
 				<a class="hover:underline" href="/wyr">Would you rather?</a>
 			</Menubar.Item>
-			<Menubar.Item>
-				<a class="hover:underline flex-1 justify-start" href="/facts">Facts</a>
+			<Menubar.Item class="flex-1 justify-start">
+				<a class="hover:underline" href="/facts">Facts</a>
 			</Menubar.Item>
 			<Button on:click={toggleMode} variant="outline" size="icon">
 				<Sun
