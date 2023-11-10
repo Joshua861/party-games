@@ -2,6 +2,13 @@
 	import '../app.postcss';
 	import Wrapper from './wrapper.svelte';
 	import { ModeWatcher } from 'mode-watcher';
+	import { onMount } from 'svelte';
+
+	let loading = true;
+
+	onMount(() => {
+		loading = false;
+	});
 </script>
 
 <svelte:head>
@@ -14,6 +21,22 @@
 </svelte:head>
 
 <ModeWatcher />
+{#if loading}
+	<div class="w-screen h-screen bg-background content-center grid grid-cols-3 justify-items-center">
+		<div />
+		<div
+			class="inline-block h-32 w-32 animate-spin rounded-full border-[12px] border-solid border-current border-r-transparent align-[-0.125em] dark:text-purple-400 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+			role="status"
+		>
+			<span
+				class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+				>Loading...</span
+			>
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div />
+	</div>
+{/if}
 <Wrapper>
 	<slot />
 </Wrapper>

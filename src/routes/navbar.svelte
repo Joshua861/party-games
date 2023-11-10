@@ -9,7 +9,8 @@
 		Home,
 		Brain,
 		Paintbrush,
-		SunMoon
+		SunMoon,
+		X
 	} from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -61,7 +62,7 @@
 	class="!max-w-none prose prose-a:px-1 prose-a:decoration-2 prose-a:no-underline dark:prose-invert rounded-none border-b border-none lg:px-4 border"
 >
 	<Menubar.Menu>
-		<div class="hidden md:flex gap-x-2 justify-start mt-2 w-screen">
+		<div class="hidden lg:flex gap-x-2 justify-start mt-2 w-screen">
 			<Menubar.Item>
 				<a class="hover:underline" href="/">Home</a></Menubar.Item
 			>
@@ -80,8 +81,11 @@
 			<Menubar.Item>
 				<a class="hover:underline" href="/wyr">Would you rather?</a>
 			</Menubar.Item>
-			<Menubar.Item class="flex-1 justify-start">
+			<Menubar.Item class="">
 				<a class="hover:underline" href="/facts">Facts</a>
+			</Menubar.Item>
+			<Menubar.Item class="flex-1 justify-start">
+				<a class="hover:underline" href="/nhie">Never have I ever</a>
 			</Menubar.Item>
 			<Button on:click={toggleMode} variant="outline" size="icon">
 				<Sun
@@ -93,7 +97,7 @@
 				<span class="sr-only">Toggle theme</span>
 			</Button>
 		</div>
-		<div class="flex justify-start md:hidden mt-3 gap-2 w-screen">
+		<div class="flex justify-start lg:hidden mt-3 gap-2 w-screen">
 			<div class="flex-1 justify-start self-center">
 				<Menubar.Item>
 					<a class="hover:underline" href="/">Home</a>
@@ -138,10 +142,10 @@
 					<span>Jokes</span>
 				</Command.Item>
 			</a>
-			<a href="/wyr" on:click={closeMenu}>
+			<a href="/nhie" on:click={closeMenu}>
 				<Command.Item class="flex">
-					<HelpCircle class="mr-2 h-4 w-4" />
-					<span class="flex-1">Would you rather?</span>
+					<X class="mr-2 h-4 w-4" />
+					<span class="flex-1">Never have I ever</span>
 					<Badge class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800"
 						>New</Badge
 					>
@@ -151,6 +155,12 @@
 				<Command.Item>
 					<Brain class="mr-2 h-4 w-4" />
 					<span>Facts</span>
+				</Command.Item>
+			</a>
+			<a href="/wyr" on:click={closeMenu}>
+				<Command.Item>
+					<HelpCircle class="mr-2 h-4 w-4" />
+					<span>Would you rather</span>
 				</Command.Item>
 			</a>
 			<a href="/riddles" on:click={closeMenu}>

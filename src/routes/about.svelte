@@ -63,7 +63,8 @@
 </h2>
 
 <p>
-	Fun facts from the <a href="https://github.com/TabulateJarl8/randfacts">randfacts</a> python module, thanks to <a href="https://github.com/TabulateJarl8">@TabulateJarl8</a>.
+	Fun facts from the <a href="https://github.com/TabulateJarl8/randfacts">randfacts</a> python
+	module, thanks to <a href="https://github.com/TabulateJarl8">@TabulateJarl8</a>.
 </p>
 
 <Separator />
@@ -73,9 +74,23 @@
 </h2>
 
 <p>
-	Would you rather questions provided by <a href="https://github.com/svijaymohan745">@svijaymohan745</a> as part of their <a href="https://github.com/svijaymohan745/Discord.JS-12-CON-Bot">Discord bot</a>.
+	Would you rather questions provided by <a href="https://github.com/svijaymohan745"
+		>@svijaymohan745</a
+	>
+	as part of their
+	<a href="https://github.com/svijaymohan745/Discord.JS-12-CON-Bot">Discord bot</a>.
 </p>
 
 <Separator />
+
+<h2>
+	<a href="/nhie">Never Have I Ever</a>
+</h2>
+
+<p>
+	Never have I ever questions stolen from <a
+		href="https://www.scienceofpeople.com/never-have-i-ever-questions/">here</a
+	>.
+</p>
 
 <p class="text-sm text-neutral-500">Favicon by Twemoji</p>
