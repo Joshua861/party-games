@@ -10,7 +10,8 @@
 		Brain,
 		Paintbrush,
 		SunMoon,
-		X
+		X,
+		Flag
 	} from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -84,6 +85,10 @@
 			<Menubar.Item class="">
 				<a class="hover:underline" href="/facts">Facts</a>
 			</Menubar.Item>
+
+			<Menubar.Item class="">
+				<a class="hover:underline" href="/flags">Flags</a>
+			</Menubar.Item>
 			<Menubar.Item class="flex-1 justify-start">
 				<a class="hover:underline" href="/nhie">Never have I ever</a>
 			</Menubar.Item>
@@ -142,10 +147,10 @@
 					<span>Jokes</span>
 				</Command.Item>
 			</a>
-			<a href="/nhie" on:click={closeMenu}>
+			<a href="/flags" on:click={closeMenu}>
 				<Command.Item class="flex">
-					<X class="mr-2 h-4 w-4" />
-					<span class="flex-1">Never have I ever</span>
+					<Flag class="mr-2 h-4 w-4" />
+					<span class="flex-1">Flags</span>
 					<Badge class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800"
 						>New</Badge
 					>
@@ -155,6 +160,12 @@
 				<Command.Item>
 					<Brain class="mr-2 h-4 w-4" />
 					<span>Facts</span>
+				</Command.Item>
+			</a>
+			<a href="/nhie" on:click={closeMenu}>
+				<Command.Item>
+					<X class="mr-2 h-4 w-4" />
+					<span>Never have I ever</span>
 				</Command.Item>
 			</a>
 			<a href="/wyr" on:click={closeMenu}>
