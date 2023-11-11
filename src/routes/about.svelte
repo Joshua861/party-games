@@ -93,4 +93,18 @@
 	>.
 </p>
 
+<Separator />
+
+<h2>
+	<a href="/flags">Flags</a>
+</h2>
+
+<p>
+	Can you guess the flag? Made using the <a href="https://flagpedia.net/download/api"
+		>Flagpedia API</a
+	>.
+</p>
+
+<Separator />
+
 <p class="text-sm text-neutral-500">Favicon by Twemoji</p>
