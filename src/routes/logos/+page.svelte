@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { Skeleton } from '$lib/components/ui/skeleton';
+	import Image from 'svimg/Image.svelte';
 	let logos = `ADT.png
 AMD.png
 Adidas.png

@@ -13,7 +13,8 @@
 		X,
 		Flag,
 		Dices,
-		Instagram
+		Instagram,
+		Text
 	} from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -210,6 +211,12 @@
 				<Command.Item>
 					<Home class="mr-2 h-4 w-4" />
 					<span>Home</span>
+				</Command.Item>
+			</a>
+			<a href="/credits" on:click={closeMenu}>
+				<Command.Item>
+					<Text class="mr-2 h-4 w-4" />
+					<span>Credits</span>
 				</Command.Item>
 			</a>
 			<div on:click={colorAndClose}>
