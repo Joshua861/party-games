@@ -54,5 +54,5 @@
 	<Button class="flex-1" on:click={toggleAnswer}>
 		{showAnswer === false ? 'Show Answer' : 'Hide Answer'}</Button
 	>
-	<Button class="flex-1" on:click={randomCountry}>Refresh</Button>
+	<Button class="flex-1" on:click={randomCountry}>Next</Button>
 </div>
