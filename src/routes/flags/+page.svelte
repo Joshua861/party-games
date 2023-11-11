@@ -6,7 +6,8 @@
 
 	let countryCode,
 		countryName = '';
-	let showAnswer = false;
+	let showAnswer;
+	let validCountry;
 
 	onMount(() => {
 		randomCountry();
@@ -14,12 +15,20 @@
 
 	const randomCountry = async () => {
 		showAnswer = false;
+		validCountry = false;
 		let response = await fetch('https://flagcdn.com/en/codes.json');
 		let obj = await response.json();
 		console.log(obj);
 		let entries = Object.entries(obj);
-		let index = Math.floor(Math.random() * entries.length);
-		[countryCode, countryName] = entries[index];
+		while (validCountry === false) {
+			let index = Math.floor(Math.random() * entries.length);
+			[countryCode, countryName] = entries[index];
+			if (countryCode.includes('us-') === false) {
+				validCountry = true;
+			} else {
+				console.log('State flag skipped!');
+			}
+		}
 		console.log(countryCode, countryName);
 		imgUrl = 'https://flagcdn.com/256x192/' + countryCode + '.png';
 	};
