@@ -18,6 +18,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import { Button } from '$lib/components/ui/button';
 	import { Sun, Moon } from 'lucide-svelte';
+	import { cn } from '$lib/utils';
 
 	import { toggleMode } from 'mode-watcher';
 
@@ -64,9 +65,10 @@
 >
 	<Menubar.Menu>
 		<div class="hidden lg:flex gap-x-2 justify-start mt-2 w-screen">
-			<Menubar.Item>
+			<Menubar.Item class="flex-1">
 				<a class="hover:underline" href="/">Home</a></Menubar.Item
 			>
+			<!--
 			<Menubar.Item>
 				<a class="hover:underline" href="/debates">Debate Topics</a>
 			</Menubar.Item>
@@ -92,14 +94,22 @@
 			<Menubar.Item class="flex-1 justify-start">
 				<a class="hover:underline" href="/nhie">Never have I ever</a>
 			</Menubar.Item>
-			<Button on:click={toggleMode} variant="outline" size="icon">
-				<Sun
-					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-				/>
-				<Moon
-					class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-				/>
-				<span class="sr-only">Toggle theme</span>
+			-->
+			<Button
+				variant="outline"
+				class={cn(
+					'relative w-full justify-start text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64'
+				)}
+				on:click={() => (open = true)}
+				{...$$restProps}
+			>
+				<span class="hidden lg:inline-flex"> Search games... </span>
+				<span class="inline-flex lg:hidden">Search...</span>
+				<kbd
+					class="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex"
+				>
+					TAB
+				</kbd>
 			</Button>
 		</div>
 		<div class="flex justify-start lg:hidden mt-3 gap-2 w-screen">
