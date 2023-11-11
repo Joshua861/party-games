@@ -34,7 +34,9 @@
 <h1>Flags</h1>
 
 <figure>
-	<img src={imgUrl} class="w-full !rounded-none p-5" />
+	<div class="flex justify-center items-center">
+		<img src={imgUrl} class="!rounded-none p-5" />
+	</div>
 	<figcaption class="!text-3xl font-bold dark:text-white text-black">
 		{#if showAnswer}
 			{countryName}
