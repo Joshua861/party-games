@@ -12,7 +12,8 @@
 		SunMoon,
 		X,
 		Flag,
-		Dices
+		Dices,
+		Instagram
 	} from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -158,10 +159,10 @@
 					<span>Jokes</span>
 				</Command.Item>
 			</a>
-			<a href="/flags" on:click={closeMenu}>
+			<a href="/logos" on:click={closeMenu}>
 				<Command.Item class="flex">
-					<Flag class="mr-2 h-4 w-4" />
-					<span class="flex-1">Flags</span>
+					<Instagram class="mr-2 h-4 w-4" />
+					<span class="flex-1">Logo guesser</span>
 					<Badge class="dark:bg-sky-300 dark:hover:bg-sky-200 bg-sky-700 hover:bg-sky-800"
 						>New</Badge
 					>
@@ -171,6 +172,12 @@
 				<Command.Item>
 					<Brain class="mr-2 h-4 w-4" />
 					<span>Facts</span>
+				</Command.Item>
+			</a>
+			<a href="/flags" on:click={closeMenu}>
+				<Command.Item>
+					<Flag class="mr-2 h-4 w-4" />
+					<span>Flags</span>
 				</Command.Item>
 			</a>
 			<a href="/tod" on:click={closeMenu}>
