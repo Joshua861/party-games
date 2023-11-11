@@ -11,7 +11,8 @@
 		Paintbrush,
 		SunMoon,
 		X,
-		Flag
+		Flag,
+		Dices
 	} from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import { onMount } from 'svelte';
@@ -170,6 +171,12 @@
 				<Command.Item>
 					<Brain class="mr-2 h-4 w-4" />
 					<span>Facts</span>
+				</Command.Item>
+			</a>
+			<a href="/tod" on:click={closeMenu}>
+				<Command.Item>
+					<Dices class="mr-2 h-4 w-4" />
+					<span>Truth or Dare</span>
 				</Command.Item>
 			</a>
 			<a href="/nhie" on:click={closeMenu}>

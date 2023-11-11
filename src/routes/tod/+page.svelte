@@ -25,7 +25,8 @@
 		);
 		console.log('Fetched list of tods!');
 		let text = await response.json();
-		let truths = text.truth.map(he.decode);
+		truths = text.truth;
+		dares = text.dare;
 		console.log(truths);
 	};
 
@@ -33,6 +34,11 @@
 		state = 'truth';
 		truth = truths.random();
 		console.log(truth);
+	}
+	function getDare() {
+		state = 'dare';
+		dare = dares.random();
+		console.log(dare);
 	}
 	function refresh() {
 		state = 'none';
@@ -44,11 +50,15 @@
 {#if state === 'none'}
 	<div class="flex gap-5">
 		<Button on:click={getTruth} class="flex-1">Truth</Button>
-		<Button class="flex-1">Dare</Button>
+		<Button on:click={getDare} class="flex-1">Dare</Button>
 	</div>
 {:else if state === 'truth'}
 	<blockquote>
 		{truth}
+	</blockquote>
+{:else}
+	<blockquote>
+		{dare}
 	</blockquote>
 {/if}
 
