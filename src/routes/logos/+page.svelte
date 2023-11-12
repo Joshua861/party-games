@@ -115,7 +115,6 @@ Uber.png
 Ubisoft.png
 Vine.png
 Visa.png
-Volkswagen.png
 Wikipedia.png
 Xbox.png
 YSL.png
