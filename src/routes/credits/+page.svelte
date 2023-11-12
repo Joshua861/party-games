@@ -6,7 +6,7 @@
 
 <div>
 	<div>
-		<h2>
+		<h2 id="debates">
 			<a href="/debates">Debate Topics</a>
 		</h2>
 
@@ -19,7 +19,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="jokes">
 			<a href="/jokes"> Jokes </a>
 		</h2>
 
@@ -34,7 +34,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="riddles">
 			<a href="/riddles">Riddles</a>
 		</h2>
 
@@ -47,7 +47,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="trivia">
 			<a href="/trivia">Trivia</a>
 		</h2>
 
@@ -58,7 +58,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="facts">
 			<a href="/facts">Facts</a>
 		</h2>
 
@@ -69,7 +69,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="wyr">
 			<a href="/wyr">Would you rather?</a>
 		</h2>
 
@@ -83,7 +83,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="nhie">
 			<a href="/nhie">Never Have I Ever</a>
 		</h2>
 
@@ -95,7 +95,7 @@
 	</div>
 
 	<div>
-		<h2>
+		<h2 id="flags">
 			<a href="/flags">Flags</a>
 		</h2>
 
@@ -106,7 +106,7 @@
 		</p>
 	</div>
 	<div>
-		<h2>
+		<h2 id="logos">
 			<a href="/logos">Logos</a>
 		</h2>
 
