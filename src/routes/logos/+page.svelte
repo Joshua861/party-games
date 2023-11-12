@@ -101,7 +101,6 @@ Sonos.png
 Sony.png
 Soundcloud.png
 Spotify.png
-Starbucks.png
 Steam.png
 Subway.png
 Superdry.png
