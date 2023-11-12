@@ -116,6 +116,18 @@
 			>.
 		</p>
 	</div>
+	<div>
+		<h2 id="icebreakers">
+			<a href="/icebreakers">Icebreakers</a>
+		</h2>
+
+		<p>
+			<a href="https://github.com/rendall/icebreakers/blob/master/QUESTIONS.md">Questions</a> from
+			<a href="https://github.com/rendall">rendall </a>/<a
+				href="https://github.com/rendall/icebreakers/tree/master">icebreakers</a
+			>
+		</p>
+	</div>
 </div>
 
 <Separator />
