@@ -51,7 +51,6 @@ IBM.png
 Infiniti.png
 Intel.png
 Jaguar.png
-JohnDeere.png
 KFC.png
 Kappa.png
 Koenigsegg.png
@@ -97,12 +96,10 @@ Sanyo.png
 Shell.png
 Skullcandy.png
 Skype.png
-Snapchat.png
 Sonos.png
 Sony.png
 Soundcloud.png
 Spotify.png
-Starbucks.png
 Steam.png
 Subway.png
 Superdry.png
@@ -118,7 +115,6 @@ Uber.png
 Ubisoft.png
 Vine.png
 Visa.png
-Volkswagen.png
 Wikipedia.png
 Xbox.png
 YSL.png
@@ -153,7 +149,7 @@ Yamaha.png`.split('\n');
 <h1>Logos</h1>
 
 <div
-	class="flex justify-center h-[320px] w-full rounded-xl bg-neutral-300 dark:bg-neutral-800 border border-neutral-600"
+	class="flex justify-center h-[320px] w-full rounded-xl bg-neutral-200 border border-neutral-600"
 >
 	{#if showAnswer}
 		<img src={a} alt="Logo" />
