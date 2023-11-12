@@ -9,10 +9,10 @@
 
 {#if browser}
 	<Carousel>
-		<Image src="/images/trivia.png" alt="Screenshot of the trivia game" />
-		<Image src="/images/flags.png" alt="Screenshot of the flags game" />
-		<Image src="/images/debates.png" alt="Screenshot of the debates game" />
-		<Image src="/images/jokes.png" alt="Screenshot of the jokes section" />
-		<Image src="/images/logos.png" alt="Screenshot of the logo guessing game" />
+		<a href="/trivia"><Image src="/images/trivia.png" alt="Screenshot of the trivia game" /></a>
+		<a href="/flags"><Image src="/images/flags.png" alt="Screenshot of the flags game" /></a>
+		<a href="/debates"><Image src="/images/debates.png" alt="Screenshot of the debates game" /></a>
+		<a href="/jokes"><Image src="/images/jokes.png" alt="Screenshot of the jokes section" /></a>
+		<a href="/logos"><Image src="/images/logos.png" alt="Screenshot of the logo game" /></a>
 	</Carousel>
 {/if}
