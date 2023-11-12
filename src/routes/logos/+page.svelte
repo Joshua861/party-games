@@ -97,7 +97,6 @@ Sanyo.png
 Shell.png
 Skullcandy.png
 Skype.png
-Snapchat.png
 Sonos.png
 Sony.png
 Soundcloud.png
