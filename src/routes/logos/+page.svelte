@@ -153,7 +153,7 @@ Yamaha.png`.split('\n');
 <h1>Logos</h1>
 
 <div
-	class="flex justify-center h-[320px] w-full rounded-xl bg-neutral-300 dark:bg-neutral-800 border border-neutral-600"
+	class="flex justify-center h-[320px] w-full rounded-xl bg-neutral-200 border border-neutral-600"
 >
 	{#if showAnswer}
 		<img src={a} alt="Logo" />
