@@ -51,7 +51,6 @@ IBM.png
 Infiniti.png
 Intel.png
 Jaguar.png
-JohnDeere.png
 KFC.png
 Kappa.png
 Koenigsegg.png
