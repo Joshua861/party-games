@@ -80,7 +80,7 @@
 		>
 			<h2>Trivia</h2>
 			<p class="mb-8 leading-relaxed">
-				Guess as many flags as you can, how many can you get right? Huh? None???? LMAOOOOOOOOO
+				Guess as many answers as you can, how many can you get right? Huh? None???? LMAOOOOOOOOO
 			</p>
 			<div class="flex justify-center gap-3">
 				<a href="/trivia"><Button>Check it out!</Button></a>
