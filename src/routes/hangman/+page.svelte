@@ -12,6 +12,7 @@
 	let letters3 = 'ZXCVBNM';
 	let angry = false;
 	let wrongLetters = [];
+	let win = false;
 
 	Array.prototype.random = function () {
 		return this[Math.floor(Math.random() * this.length)];
@@ -40,6 +41,7 @@
 		livesLost = 0;
 		angry = false;
 		wrongLetters = [];
+		win = false;
 	}
 
 	function guess(letter) {
@@ -54,6 +56,9 @@
 			}
 			hidden = hiddenArray.join('');
 			console.log(hidden);
+			if (hidden == word) {
+				win = true;
+			}
 		} else {
 			angry = true;
 			wrongLetters.push(letter);
@@ -72,7 +77,13 @@
 	class="bg-background w-fit mx-auto font-bold {angry === true
 		? 'text-red-500'
 		: 'text - foreground'} text-3xl">
-{#if livesLost <= 7}
+{#if win}
+		YOU WIN!!!
+
+    <br />
+
+    <Button on:click={refresh}>Restart?</Button>
+	{:else if livesLost <= 7}
 		{art[livesLost]}
 	{:else}
 		GAME OVER!!!
