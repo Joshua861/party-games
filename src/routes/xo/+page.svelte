@@ -67,22 +67,22 @@
 
 <h1>Tic-Tac-Toe</h1>
 
-<div class="grid grid-cols-3 border border-8">
+<div class="grid grid-cols-3">
 	{#each moves as move, i}
 		{#if move !== 'none'}
 			<div
-				class="aspect-square border border-8 {hlTiles[i] === 'yes'
+				class="flex justify-content-center items-center aspect-square border {hlTiles[i] === 'yes'
 					? 'dark:bg-green-600 bg-green-400 border-green-400 dark:border-green-600'
 					: ''}"
 			>
 				{#if move === 'X'}
 					<X class="w-full h-full" />
 				{:else if move === 'O'}
-					<Circle class="w-full h-full p-5" />
+					<Circle class="w-[75%] h-[75%] mx-auto my-auto" />
 				{/if}
 			</div>
 		{:else}
-			<button class="aspect-square border border-8" on:click={() => onMove(i)} />
+			<button class="aspect-square border" on:click={() => onMove(i)} />
 		{/if}
 	{/each}
 </div>
