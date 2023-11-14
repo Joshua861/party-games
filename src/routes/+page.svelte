@@ -21,6 +21,8 @@
 		<a href="/nhie"><Image src="/images/nhie.png" alt="Screenshot of the never have I ever" /></a>
 		<a href="/wyr"><Image src="/images/wyr.png" alt="Screenshot of would you rather" /></a>
 		<a href="/riddles"><Image src="/images/riddles.png" alt="Screenshot of the riddles" /></a>
+		<a href="/xo"><Image src="/images/xo.png" alt="Screenshot of the tic tac toe" /></a>
+		<a href="/icebreakers"><Image src="/images/icebreakers.png" alt="icebreakers" /></a>
 	</Carousel>
 {/if}
 
@@ -266,7 +268,28 @@
 			</div>
 		</div>
 		<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-			<Image src="/images/icebreakers.png" alt="Screenshot of the would you rather game" />
+			<Image src="/images/icebreakers.png" alt="Screenshot of the icebreakers" />
+		</div>
+	</div>
+</section>
+
+<Separator />
+
+<section>
+	<div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
+		<div
+			class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
+		>
+			<h2>Tic Tac Toe</h2>
+			<p class="mb-8 leading-relaxed">
+				A great game to practice your art (get it cuz you do nothing but draw????).
+			</p>
+			<div class="flex justify-center gap-3">
+				<a href="/xo"><Button>Check it out!</Button></a>
+			</div>
+		</div>
+		<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+			<Image src="/images/flags.png" alt="Screenshot of the flags game" />
 		</div>
 	</div>
 </section>
