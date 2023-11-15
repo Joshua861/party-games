@@ -87,6 +87,8 @@
 		{art[livesLost]}
 	{:else}
 		GAME OVER!!!
+
+The word was: {word}
     <br />
     <Button on:click={refresh}>Restart?</Button>
 	{/if}
