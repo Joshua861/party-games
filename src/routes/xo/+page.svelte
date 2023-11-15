@@ -1,5 +1,6 @@
 <script type="text/javascript">
 	import { X, Circle, RefreshCcw } from 'lucide-svelte';
+	import { scale } from 'svelte/transition';
 	import { Button } from '$lib/components/ui/button';
 
 	let moves = ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'];
@@ -75,11 +76,13 @@
 					? 'dark:bg-green-600 bg-green-400 border-green-400 dark:border-green-600'
 					: ''}"
 			>
-				{#if move === 'X'}
-					<X class="w-full h-full" />
-				{:else if move === 'O'}
-					<Circle class="w-[75%] h-[75%] mx-auto my-auto" />
-				{/if}
+				<div in:scale class="w-full h-full aspect-square flex justify-content-center items-center">
+					{#if move === 'X'}
+						<X class="w-full h-full" />
+					{:else if move === 'O'}
+						<Circle class="w-[75%] h-[75%] mx-auto my-auto" />
+					{/if}
+				</div>
 			</div>
 		{:else}
 			<button class="aspect-square border" on:click={() => onMove(i)} />
