@@ -23,6 +23,7 @@
 		<a href="/riddles"><Image src="/images/riddles.png" alt="Screenshot of the riddles" /></a>
 		<a href="/xo"><Image src="/images/xo.png" alt="Screenshot of the tic tac toe" /></a>
 		<a href="/icebreakers"><Image src="/images/icebreakers.png" alt="icebreakers" /></a>
+		<a href="/hangman"><Image src="/images/hangman.png" alt="hangman" /></a>
 	</Carousel>
 {/if}
 
@@ -276,6 +277,25 @@
 <Separator />
 
 <section>
+	<div class="container mx-auto flex px-5 pb-12 md:flex-row flex-col items-center">
+		<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+			<Image src="/images/hangman.png" alt="Screenshot of the riddles" />
+		</div>
+		<div
+			class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mt-16 md:mt-0 items-center text-center"
+		>
+			<h2>Hangman</h2>
+			<p class="mb-8 leading-relaxed">Its only fucked up if you think about it.</p>
+			<div class="flex justify-center gap-3">
+				<a href="/hangman"><Button>Check it out!</Button></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<Separator />
+
+<section>
 	<div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
 		<div
 			class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
@@ -288,8 +308,8 @@
 				<a href="/xo"><Button>Check it out!</Button></a>
 			</div>
 		</div>
-		<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-			<Image src="/images/flags.png" alt="Screenshot of the flags game" />
+		<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 aspect-video">
+			<Image src="/images/xo.png" alt="Screenshot of the tic tac toe game" />
 		</div>
 	</div>
 </section>

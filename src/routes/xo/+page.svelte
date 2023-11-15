@@ -8,6 +8,13 @@
 	let playerToGo = 1;
 	let gameOver = false;
 
+	let draw = false;
+	$: draw = !moves.includes('none') && !gameOver;
+
+	if (draw === true) {
+		console.log('DRAW');
+	}
+
 	function onMove(index) {
 		if (gameOver == false) {
 			if (playerToGo === 1) {
