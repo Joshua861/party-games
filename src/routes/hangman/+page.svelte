@@ -7,10 +7,8 @@
 	let word: string;
 	let words: string[];
 	let hidden: string = '';
-	let letters1 = 'QWERTYUIOP';
-	let letters2 = 'ASDFGHJKL';
-	let letters3 = 'ZXCVBNM';
-	let angry = false;
+	let letters = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+	let emotion = 'neutral';
 	let wrongLetters = [];
 	let win = false;
 
@@ -39,34 +37,40 @@
 
 		hidden = '_'.repeat(word.split('').length);
 		livesLost = 0;
-		angry = false;
+		emotion = 'neutral';
 		wrongLetters = [];
 		win = false;
 	}
 
 	function guess(letter) {
-		console.log(letter.toLowerCase());
-		if (word.includes(letter.toLowerCase())) {
-			console.log('Letter in word');
-			let hiddenArray = hidden.split('');
-			for (let i = 0; i < word.split('').length; i++) {
-				if (word[i] == letter.toLowerCase()) {
-					hiddenArray[i] = letter.toLowerCase();
+		if (livesLost <= 7) {
+			console.log(letter.toLowerCase());
+			if (word.includes(letter.toLowerCase())) {
+				emotion = 'happy';
+				setTimeout(() => {
+					emotion = 'neutral';
+				}, 500);
+				console.log('Letter in word');
+				let hiddenArray = hidden.split('');
+				for (let i = 0; i < word.split('').length; i++) {
+					if (word[i] == letter.toLowerCase()) {
+						hiddenArray[i] = letter.toLowerCase();
+					}
 				}
+				hidden = hiddenArray.join('');
+				console.log(hidden);
+				if (hidden == word) {
+					win = true;
+				}
+			} else {
+				emotion = 'angry';
+				wrongLetters.push(letter);
+				console.log(wrongLetters);
+				livesLost += 1;
+				setTimeout(() => {
+					emotion = 'neutral';
+				}, 500);
 			}
-			hidden = hiddenArray.join('');
-			console.log(hidden);
-			if (hidden == word) {
-				win = true;
-			}
-		} else {
-			angry = true;
-			wrongLetters.push(letter);
-			console.log(wrongLetters);
-			livesLost += 1;
-			setTimeout(() => {
-				angry = false;
-			}, 500);
 		}
 	}
 </script>
@@ -74,9 +78,9 @@
 <h1>Hangman</h1>
 
 <pre
-	class="bg-background w-fit mx-auto font-bold {angry === true
+	class="m-0 bg-background w-fit mx-auto font-bold {emotion === 'angry'
 		? 'text-red-500'
-		: 'text-foreground'} text-3xl">
+		: 'text-foreground'} {emotion === 'happy' ? 'text-green-500' : ''} transition-all text-3xl">
 {#if win}
 		YOU WIN!!!
 
@@ -88,27 +92,27 @@
 	{:else}
 		GAME OVER!!!
 
-The word was: {word}
-    <br />
+Word: {word}
+
     <Button on:click={refresh}>Restart?</Button>
 	{/if}
 </pre>
 
 <pre
-	class="bg-background w-fit mx-auto font-bold text-foreground text-3xl tracking-[.5em] {angry ===
-	true
+	class="bg-background w-fit mx-auto font-bold text-foreground text-3xl tracking-[.5em] {emotion ===
+	'angry'
 		? 'text-red-500'
-		: 'text-foreground'}">
+		: 'text-foreground'} {emotion === 'happy' ? 'text-green-500' : ''} transition-all">
 {hidden}
 </pre>
 
-{#each [letters1.split(''), letters2.split(''), letters3.split('')] as letters}
+{#each letters as letters}
 	<div class="flex gap-1 md:gap-3 mx-auto justify-center">
-		{#each letters as letter}
+		{#each letters.split('') as letter}
 			<button
 				variant="outline"
 				on:click={() => guess(letter)}
-				class="px-2 border rounded flex-1 h-16 {angry === true
+				class="px-2 border rounded flex-1 h-16 {emotion === 'angry'
 					? 'text-red-500'
 					: 'text-foreground'}"
 			>
@@ -116,5 +120,5 @@ The word was: {word}
 			</button>
 		{/each}
 	</div>
-	<div class="h-1 md:w-3" />
+	<div class="h-1 md:h-3" />
 {/each}
