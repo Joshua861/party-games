@@ -76,7 +76,7 @@
 <pre
 	class="bg-background w-fit mx-auto font-bold {angry === true
 		? 'text-red-500'
-		: 'text - foreground'} text-3xl">
+		: 'text-foreground'} text-3xl">
 {#if win}
 		YOU WIN!!!
 
@@ -98,7 +98,7 @@ The word was: {word}
 	class="bg-background w-fit mx-auto font-bold text-foreground text-3xl tracking-[.5em] {angry ===
 	true
 		? 'text-red-500'
-		: 'text - foreground'}">
+		: 'text-foreground'}">
 {hidden}
 </pre>
 
@@ -110,7 +110,7 @@ The word was: {word}
 				on:click={() => guess(letter)}
 				class="px-2 border rounded flex-1 h-16 {angry === true
 					? 'text-red-500'
-					: 'text - foreground'}"
+					: 'text-foreground'}"
 			>
 				{letter}
 			</button>
