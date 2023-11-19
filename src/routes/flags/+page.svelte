@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import { Button } from '$lib/components/ui/button';
@@ -42,6 +42,10 @@
 
 <h1>Flags</h1>
 
+<p class="sr-only">
+	Sorry if you're using a screen reader, theres not really any way for me to make this acessible.
+</p>
+
 <figure>
 	<div class="flex justify-center items-center">
 		<img src={imgUrl} class="!rounded-none p-5" />
@@ -54,9 +58,6 @@
 		{/if}
 	</figcaption>
 </figure>
-<p class="sr-only">
-	Sorry if you're using a screen reader, theres not really any way for me to make this acessible.
-</p>
 
 <Separator />
 <br />
