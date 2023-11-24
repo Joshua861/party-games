@@ -30,7 +30,7 @@
 			}
 		}
 		console.log(countryCode, countryName);
-		imgUrl = 'https://flagcdn.com/256x192/' + countryCode + '.png';
+		imgUrl = 'https://flagcdn.com/' + countryCode + '.svg';
 	};
 
 	const toggleAnswer = () => {
