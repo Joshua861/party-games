@@ -1,15 +1,16 @@
-<script type="ts">
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { ChevronRight } from 'lucide-svelte';
+	import { ChevronRight, Share } from 'lucide-svelte';
 
 	let fact = 'Loading...';
 
-	Array.prototype.random = function () {
-		return this[Math.floor(Math.random() * this.length)];
+	Array.prototype.randomID = function () {
+		return Math.floor(Math.random() * this.length);
 	};
 
 	let facts = [];
+	let id: number;
 
 	onMount(() => {
 		getFacts();
@@ -27,8 +28,14 @@
 
 	function refresh() {
 		console.log('Refreshing...');
-		fact = facts.random();
+		id = facts.randomID();
+		fact = facts[id];
 		console.log('Fact: ' + fact);
+	}
+
+	function share() {
+		let copy = 'https://partygames.vercel.app/fact?id=' + id;
+		navigator.clipboard.writeText(copy);
 	}
 </script>
 
@@ -40,11 +47,21 @@
 
 <br />
 
-<div class="flex items-center space-x-2 h-12">
-	<div on:click={refresh} on:keypress={refresh}>
-		<Button class="w-full">
-			<ChevronRight class="inline mr-3" />
-			Next
-		</Button>
+<div class="flex inline-block flex-1 gap-3">
+	<div class="flex items-center space-x-2 h-12">
+		<div on:click={refresh} on:keypress={refresh}>
+			<Button class="w-full">
+				<ChevronRight class="inline mr-3" />
+				Next
+			</Button>
+		</div>
+	</div>
+	<div class="flex items-center space-x-2 h-12">
+		<div on:click={share} on:keypress={share}>
+			<Button class="w-full">
+				<Share class="inline mr-3" />
+				Share
+			</Button>
+		</div>
 	</div>
 </div>
