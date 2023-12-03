@@ -2,8 +2,16 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
+	import { goto } from '$app/navigation';
 
 	let id = $page.url.searchParams.get('id');
+	let noID = false;
+
+	$: {
+		if (noID) {
+			goto('/facts');
+		}
+	}
 
 	onMount(() => {
 		getFacts();
@@ -23,16 +31,26 @@
 	};
 
 	function refresh() {
-		console.log('Refreshing...');
-		fact = facts[id];
-		console.log('Fact: ' + fact);
+		if (id) {
+			console.log('Refreshing...');
+			fact = facts[id];
+			console.log('Fact: ' + fact);
+			if (!fact) {
+				fact = "Something weird happened. Kind of a bruh moment ngl. I'll redirect you in a sec...";
+				setTimeout(() => {
+					goto('/facts');
+				}, 3000);
+			}
+		} else {
+			noID = true;
+		}
 	}
 </script>
 
 <div class="w-full h-[80vh] flex">
-	<blockquote class="text-lg my-auto text-4xl">
+	<p class="text-lg my-auto text-4xl sm:w-5/6 mx-auto">
 		{fact}
-	</blockquote>
+	</p>
 </div>
 
 <Button href="/facts" class="no-underline">More facts</Button>

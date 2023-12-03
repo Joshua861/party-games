@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { ChevronRight, Share } from 'lucide-svelte';
+	import { ChevronRight, Copy } from 'lucide-svelte';
 
 	let fact = 'Loading...';
 
@@ -59,8 +59,8 @@
 	<div class="flex items-center space-x-2 h-12">
 		<div on:click={share} on:keypress={share}>
 			<Button class="w-full">
-				<Share class="inline mr-3" />
-				Share
+				<Copy class="inline mr-3" />
+				Copy Link
 			</Button>
 		</div>
 	</div>
