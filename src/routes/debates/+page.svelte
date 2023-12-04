@@ -38,6 +38,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Debates</title>
+</svelte:head>
+
 <h1>Debate Topics</h1>
 
 <blockquote class="lead" on:click={refresh}>

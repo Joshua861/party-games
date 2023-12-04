@@ -45,6 +45,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Truth or dare</title>
+</svelte:head>
+
 <h1>Truth or Dare?</h1>
 
 {#if state === 'none'}

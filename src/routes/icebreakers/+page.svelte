@@ -32,6 +32,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Icebreakers</title>
+</svelte:head>
 <h1>Icebreakers</h1>
 
 <blockquote class="text-lg">

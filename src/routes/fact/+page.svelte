@@ -47,6 +47,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Cool fact</title>
+</svelte:head>
+
 <div class="w-full h-[80vh] flex">
 	<p class="text-lg my-auto text-4xl sm:w-5/6 mx-auto">
 		{fact}

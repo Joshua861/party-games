@@ -59,6 +59,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Trivia</title>
+</svelte:head>
+
 <h1>Trivia</h1>
 
 <p class="text-xl italic">

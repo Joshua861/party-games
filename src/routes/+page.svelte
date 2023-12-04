@@ -7,6 +7,10 @@
 	import { Separator } from '$lib/components/ui/separator';
 </script>
 
+<svelte:head>
+	<title>Party Games</title>
+</svelte:head>
+
 <h1>Party Games <PartyPopper class="inline-block" size="32" /></h1>
 
 {#if browser}

@@ -2,6 +2,10 @@
 	import { Separator } from '$lib/components/ui/separator';
 </script>
 
+<svelte:head>
+	<title>Credits</title>
+</svelte:head>
+
 <h1>Credits</h1>
 
 <div>

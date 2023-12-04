@@ -75,6 +75,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Hangman</title>
+</svelte:head>
 <h1>Hangman</h1>
 
 <pre

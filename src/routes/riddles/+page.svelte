@@ -48,6 +48,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Riddles</title>
+</svelte:head>
+
 <h1>Riddles</h1>
 
 <blockquote class="text-lg">

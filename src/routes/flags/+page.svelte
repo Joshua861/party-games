@@ -40,6 +40,9 @@
 	let imgUrl = '';
 </script>
 
+<svelte:head>
+	<title>Flags</title>
+</svelte:head>
 <h1>Flags</h1>
 
 <p class="sr-only">

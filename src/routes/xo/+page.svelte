@@ -73,6 +73,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Tic tac toe</title>
+</svelte:head>
+
 <h1>Tic-Tac-Toe</h1>
 
 <div class="grid grid-cols-3">

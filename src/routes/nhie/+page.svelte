@@ -32,6 +32,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Never have I ever</title>
+</svelte:head>
 <h1>Never Have I Ever</h1>
 
 <blockquote class="text-lg">

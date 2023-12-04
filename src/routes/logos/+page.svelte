@@ -146,6 +146,9 @@ Yamaha.png`.split('\n');
 	};
 </script>
 
+<svelte:head>
+	<title>Logos</title>
+</svelte:head>
 <h1>Logos</h1>
 
 <div

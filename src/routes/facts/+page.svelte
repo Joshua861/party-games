@@ -39,6 +39,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Facts</title>
+</svelte:head>
+
 <h1>Facts</h1>
 
 <blockquote class="text-lg">

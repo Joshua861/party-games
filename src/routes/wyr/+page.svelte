@@ -32,6 +32,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Would you rather?</title>
+</svelte:head>
+
 <h1>Would You Rather?</h1>
 
 <blockquote class="text-lg">
