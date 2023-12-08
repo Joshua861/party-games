@@ -149,6 +149,7 @@ Yamaha.png`.split('\n');
 <svelte:head>
 	<title>Logos</title>
 </svelte:head>
+
 <h1>Logos</h1>
 
 <div
