@@ -3,10 +3,13 @@
 	import Wrapper from './wrapper.svelte';
 	import { ModeWatcher } from 'mode-watcher';
 	import { onMount } from 'svelte';
-	import { inject } from '@vercel/analytics'
+	import { inject } from '@vercel/analytics';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+	injectSpeedInsights();
+	inject();
 
 	let loading = true;
-	inject()
 
 	onMount(() => {
 		loading = false;
