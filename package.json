@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/analytics": "^1.2.2",
 		"bits-ui": "^0.5.7",
 		"clsx": "^2.0.0",
 		"cmdk-sv": "^0.0.5",

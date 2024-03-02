@@ -3,6 +3,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Check, ChevronRight } from 'lucide-svelte';
 	import he from 'he';
+	import { get } from 'svelte/store';
 
 	let question = 'Loading...';
 	let correct_answer = 'Loading...';
@@ -57,6 +58,14 @@
 	$: if (correct !== 'none') {
 		showNext = true;
 	}
+
+	let isOnline: boolean;
+
+	onMount(() => {
+		isOnline = get(isOnline);
+	});
+
+	$: console.log(isOnline);
 </script>
 
 <svelte:head>
@@ -70,7 +79,7 @@
 </p>
 
 <div class="grid grid-cols-1 sm:grid-cols-2">
-	{#each answers as answer, i}
+	{#each answers as answer}
 		<Button
 			on:click={() => checkAnswer(answer.text)}
 			class="h-fit inline-block my-1 sm:mx-1 {correct !== 'none' && answer.isCorrect
@@ -94,4 +103,8 @@
 		<ChevronRight class="pr-2" />
 		Next
 	</Button>
+{/if}
+
+{#if isOnline === false}
+	<p class="text-red-500">This game does not work offline.</p>
 {/if}

@@ -3,8 +3,11 @@
 	import Wrapper from './wrapper.svelte';
 	import { ModeWatcher } from 'mode-watcher';
 	import { onMount } from 'svelte';
+	import Offline from '$lib/offline.svelte';
+	import { inject } from '@vercel/analytics
 
 	let loading = true;
+	inject()
 
 	onMount(() => {
 		loading = false;
@@ -37,5 +40,6 @@
 	</div>
 {/if}
 <Wrapper>
+	<Offline />
 	<slot />
 </Wrapper>
